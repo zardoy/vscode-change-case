@@ -1,4 +1,5 @@
 # Change Case Extension for Visual Studio Code
+This is a fork of [wmaurer/vscode-change-case](https://github.com/hjdarnel/vscode-change-case), which I intend to keep up with, track issues, and update regularly.
 
 A wrapper around [node-change-case](https://github.com/blakeembrey/node-change-case) for Visual Studio Code.
 Quickly change the case of the current selection or current word.
@@ -35,6 +36,7 @@ ext install change-case
 * `extension.changeCase.path`: Change Case 'path': Convert to a lower case, slash separated string
 * `extension.changeCase.sentence`: Change Case 'sentence': Convert to a lower case, space separated string
 * `extension.changeCase.snake`: Change Case 'snake': Convert to a lower case, underscore separated string
+* `extension.changeCase.snakeUpper`: Change Case 'snakeUpper': Convert to a underscore separated string with the first character of every word upper cased
 * `extension.changeCase.swap`: Change Case 'swap': Convert to a string with every character case reversed
 * `extension.changeCase.title`: Change Case 'title': Convert to a space separated string with the first character of every word upper cased
 * `extension.changeCase.upper`: Change Case 'upper': Convert to a string in upper case
@@ -42,4 +44,4 @@ ext install change-case
 
 ## Support
 
-[Create an issue](https://github.com/wmaurer/vscode-change-case/issues), or ping [@waynemaurer](https://twitter.com/waynemaurer) on Twitter.
+[Create an issue](https://github.com/hjdarnel/vscode-change-case/issues)
