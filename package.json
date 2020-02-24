@@ -1,5 +1,6 @@
 {
   "name": "change-case",
+  "displayName": "Change Case (Updated)",
   "description": "Quickly change the case (camelCase, CONSTANT_CASE, snake_case, etc) of the current selection or current word",
   "icon": "images/change-case-icon.png",
   "galleryBanner": {
@@ -8,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wmaurer/vscode-change-case.git"
+    "url": "https://github.com/hjdarnel/vscode-change-case.git"
   },
   "bugs": {
-    "url": "https://github.com/wmaurer/vscode-change-case/issues"
+    "url": "https://github.com/hjdarnel/vscode-change-case/issues"
   },
   "license": "MIT",
   "version": "1.0.0",
-  "publisher": "wmaurer",
+  "publisher": "hjdarnel",
   "engines": {
     "vscode": "^1.6.0"
   },
@@ -36,6 +37,7 @@
     "onCommand:extension.changeCase.path",
     "onCommand:extension.changeCase.sentence",
     "onCommand:extension.changeCase.snake",
+    "onCommand:extension.changeCase.snakeUpper",
     "onCommand:extension.changeCase.swap",
     "onCommand:extension.changeCase.title",
     "onCommand:extension.changeCase.upper",
@@ -95,6 +97,10 @@
       {
         "command": "extension.changeCase.snake",
         "title": "Change Case snake"
+      },
+      {
+        "command": "extension.changeCase.snakeUpper",
+        "title": "Change Case Snake_Upper"
       },
       {
         "command": "extension.changeCase.swap",
