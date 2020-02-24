@@ -85,7 +85,13 @@ export function runCommand(commandLabel: string) {
             } else {
                 const lines = document.getText(range).split(EOL);
 
-                const replacementLines = lines.map(x => commandDefinition.func(x));
+                const replacementLines = lines.map(x => {
+                    let replacement = commandDefinition.func(x);
+                    if (commandLabel == COMMAND_LABELS.snakeUpper) {
+                        replacement = replacement.replace(/^\w/, (v) => v.toUpperCase()).replace(/_([A-Za-z]){1}/g, (v) => v.toUpperCase());
+                    }
+                    return replacement;
+                });
                 replacement = replacementLines.reduce((acc, v) => (!acc ? '' : acc + EOL) + v, undefined);
                 offset = replacementLines[replacementLines.length - 1].length - lines[lines.length - 1].length;
             }
