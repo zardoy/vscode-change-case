@@ -1,0 +1,25 @@
+{
+  "projectName": "change-case",
+  "projectOwner": "hjdarnel",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "hjdarnel",
+      "name": "Henry Darnell",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7868899?v=4",
+      "profile": "http://darnell.io",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

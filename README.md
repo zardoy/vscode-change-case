@@ -1,4 +1,7 @@
 # Change Case Extension for Visual Studio Code
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 This is a fork of [wmaurer/vscode-change-case](https://github.com/hjdarnel/vscode-change-case), which I intend to keep up with, track issues, and update regularly.
 
 A wrapper around [node-change-case](https://github.com/blakeembrey/node-change-case) for Visual Studio Code.
@@ -45,3 +48,22 @@ ext install change-case
 ## Support
 
 [Create an issue](https://github.com/hjdarnel/vscode-change-case/issues)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://darnell.io"><img src="https://avatars1.githubusercontent.com/u/7868899?v=4" width="100px;" alt=""/><br /><sub><b>Henry Darnell</b></sub></a><br /><a href="https://github.com/hjdarnel/change-case/commits?author=hjdarnel" title="Code">💻</a> <a href="https://github.com/hjdarnel/change-case/commits?author=hjdarnel" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
