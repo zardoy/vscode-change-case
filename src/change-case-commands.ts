@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { EOL } from 'os';
 import * as changeCase from 'change-case';
+import { snakeUpper } from './utils';
 const lodashUniq = require('lodash.uniq');
 
 export const COMMAND_LABELS = {
@@ -36,7 +37,7 @@ const COMMAND_DEFINITIONS = [
     { label: COMMAND_LABELS.path, description: 'Convert to a lower case, slash separated string', func: changeCase.path },
     { label: COMMAND_LABELS.sentence, description: 'Convert to a lower case, space separated string', func: changeCase.sentence },
     { label: COMMAND_LABELS.snake, description: 'Convert to a lower case, underscore separated string', func: changeCase.snake },
-    { label: COMMAND_LABELS.snakeUpper, description: 'Convert to a underscore-separated string with the first character of every word upper cased', func: changeCase.snake },
+    { label: COMMAND_LABELS.snakeUpper, description: 'Convert to a underscore-separated string with the first character of every word upper cased', func: snakeUpper },
     { label: COMMAND_LABELS.swap, description: 'Convert to a string with every character case reversed', func: changeCase.swap },
     { label: COMMAND_LABELS.title, description: 'Convert to a space separated string with the first character of every word upper cased', func: changeCase.title },
     { label: COMMAND_LABELS.upper, description: 'Convert to a string in upper case', func: changeCase.upper },
@@ -76,9 +77,6 @@ export function runCommand(commandLabel: string) {
 
             if (selection.isSingleLine) {
                 replacement = commandDefinition.func(text);
-                if (commandLabel == COMMAND_LABELS.snakeUpper) {
-                    replacement = replacement.replace(/^\w/, (v) => v.toUpperCase()).replace(/_([A-Za-z]){1}/g, (v) => v.toUpperCase());
-                }
                 // it's possible that the replacement string is shorter or longer than the original,
                 // so calculate the offsets and new selection coordinates appropriately
                 offset = replacement.length - text.length;
@@ -87,9 +85,6 @@ export function runCommand(commandLabel: string) {
 
                 const replacementLines = lines.map(x => {
                     let replacement = commandDefinition.func(x);
-                    if (commandLabel == COMMAND_LABELS.snakeUpper) {
-                        replacement = replacement.replace(/^\w/, (v) => v.toUpperCase()).replace(/_([A-Za-z]){1}/g, (v) => v.toUpperCase());
-                    }
                     return replacement;
                 });
                 replacement = replacementLines.reduce((acc, v) => (!acc ? '' : acc + EOL) + v, undefined);
