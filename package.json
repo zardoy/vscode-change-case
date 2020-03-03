@@ -1,5 +1,5 @@
 {
-  "name": "change-case",
+  "name": "vscode-change-case",
   "displayName": "Change Case (Updated)",
   "description": "Quickly change the case (camelCase, CONSTANT_CASE, snake_case, etc) of the current selection or current word",
   "icon": "images/change-case-icon.png",
@@ -148,13 +148,13 @@
     ],
     "prepare": {
       "path": "semantic-release-vsce",
-      "packageVsix": "your-extension.vsix"
+      "packageVsix": "vscode-change-case.vsix"
     },
     "publish": [
       "semantic-release-vsce",
       {
         "path": "@semantic-release/github",
-        "assets": "your-extension.vsix"
+        "assets": "vscode-change-case.vsix"
       }
     ]
   },
