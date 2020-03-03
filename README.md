@@ -1,7 +1,6 @@
 # Change Case Extension for Visual Studio Code
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
 This is a fork of [wmaurer/vscode-change-case](https://github.com/hjdarnel/vscode-change-case), which I intend to keep up with, track issues, and update regularly.
 
 A wrapper around [node-change-case](https://github.com/blakeembrey/node-change-case) for Visual Studio Code.
