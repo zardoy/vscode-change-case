@@ -137,8 +137,8 @@
     "compile": "tsc -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "pretest": "npm run compile && npm run lint",
-    "test": "node ./out/test/suite/runTest.js",
-    "test:unit": "npm run pretest && mocha ./out/test/unit/utils.test.js",
+    "test": "npm run pretest && mocha \"./out/test/unit\"",
+    "test:integration": "node ./out/test/runTest.js",
     "semantic-release": "semantic-release"
   },
   "release": {
