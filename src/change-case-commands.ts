@@ -61,7 +61,7 @@ export function changeCaseCommands() {
 
 export function runCommand(commandLabel: string) {
     const commandDefinition = COMMAND_DEFINITIONS.filter(c => c.label === commandLabel)[0];
-    if (!commandDefinition) return;
+    if (!commandDefinition) { return; }
 
     const editor = vscode.window.activeTextEditor;
     const { document, selections } = editor;
@@ -136,7 +136,7 @@ function getSelectedTextIfOnlyOneSelection(): string {
     const { document, selection, selections } = editor;
 
     // check if there's only one selection or if the selection spans multiple lines
-    if (selections.length > 1 || selection.start.line !== selection.end.line) return undefined;
+    if (selections.length > 1 || selection.start.line !== selection.end.line) { return undefined; }
 
     return getSelectedText(selections[0], document).text;
 }
@@ -161,14 +161,14 @@ const CHANGE_CASE_WORD_CHARACTER_REGEX_WITHOUT_DOT = /([\w_\-\/$]+)/;
 
 // Change Case has a special definition of a word: it can contain special characters like dots, dashes and slashes
 function getChangeCaseWordRangeAtPosition(document: vscode.TextDocument, position: vscode.Position) {
-    const configuration = vscode.workspace.getConfiguration('changeCase')
+    const configuration = vscode.workspace.getConfiguration('changeCase');
     const includeDotInCurrentWord = configuration ? configuration.get('includeDotInCurrentWord', false) : false;
     const regex = includeDotInCurrentWord
         ? CHANGE_CASE_WORD_CHARACTER_REGEX
         : CHANGE_CASE_WORD_CHARACTER_REGEX_WITHOUT_DOT;
 
     const range = document.getWordRangeAtPosition(position);
-    if (!range) return undefined;
+    if (!range) { return undefined; }
 
     let startCharacterIndex = range.start.character - 1;
     while (startCharacterIndex >= 0) {
@@ -215,9 +215,9 @@ function toSelection(range: vscode.Range): vscode.Selection {
 }
 
 function compareByEndPosition(a: vscode.Range | vscode.Selection, b: vscode.Range | vscode.Selection): number {
-    if (a.end.line < b.end.line) return -1;
-    if (a.end.line > b.end.line) return 1;
-    if (a.end.character < b.end.character) return -1;
-    if (a.end.character > b.end.character) return 1;
+    if (a.end.line < b.end.line) { return -1; }
+    if (a.end.line > b.end.line) { return 1; }
+    if (a.end.character < b.end.character) { return -1; }
+    if (a.end.character > b.end.character) { return 1; }
     return 0;
 }

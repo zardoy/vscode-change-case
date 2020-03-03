@@ -3,3 +3,5 @@ logs
 
 out
 node_modules
+
+.vscode-test
