@@ -25,10 +25,10 @@ We love pull requests. Here’s a quick guide:
   git checkout -b fix-for-that-thing
   ```
 
-3. Code and commit your changes:
+3. Code and commit your changes. Please follow [Angular commit guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines):
 
   ```bash
-  git commit -am "Adds a fix for that thing!"
+  git commit -am "fix(thing): Adds a fix for that thing!"
   ```
 
 4. If everything looks good, push to your fork
