@@ -1,6 +1,11 @@
 import * as vscode from 'vscode';
 import { EOL } from 'os';
 import * as changeCase from 'change-case';
+import { lowerCase } from 'lower-case';
+import { swapCase } from 'swap-case';
+import { titleCase } from 'title-case';
+import { upperCase } from 'upper-case';
+import { upperCaseFirst } from 'upper-case-first';
 import { snakeUpper } from './utils';
 const lodashUniq = require('lodash.uniq');
 
@@ -21,109 +26,109 @@ export const COMMAND_LABELS = {
     swap: 'swap',
     title: 'title',
     upper: 'upper',
-    upperFirst: 'upperFirst'
+    upperFirst: 'upperFirst',
 };
 
 const COMMAND_DEFINITIONS = [
     {
         label: COMMAND_LABELS.camel,
         description: 'Convert to a string with the separators denoted by having the next letter capitalised',
-        func: changeCase.camel
+        func: changeCase.camelCase,
     },
     {
         label: COMMAND_LABELS.constant,
         description: 'Convert to an upper case, underscore separated string',
-        func: changeCase.constant
+        func: changeCase.constantCase,
     },
     {
         label: COMMAND_LABELS.dot,
         description: 'Convert to a lower case, period separated string',
-        func: changeCase.dot
+        func: changeCase.dotCase,
     },
     {
         label: COMMAND_LABELS.kebab,
         description: 'Convert to a lower case, dash separated string (alias for param case)',
-        func: changeCase.param
+        func: changeCase.paramCase,
     },
-    { label: COMMAND_LABELS.lower, description: 'Convert to a string in lower case', func: changeCase.lower },
+    { label: COMMAND_LABELS.lower, description: 'Convert to a string in lower case', func: lowerCase },
     {
         label: COMMAND_LABELS.lowerFirst,
         description: 'Convert to a string with the first character lower cased',
-        func: changeCase.lcFirst
+        func: lowerCase,
     },
     {
         label: COMMAND_LABELS.no,
         description: 'Convert the string without any casing (lower case, space separated)',
-        func: changeCase.no
+        func: changeCase.noCase,
     },
     {
         label: COMMAND_LABELS.param,
         description: 'Convert to a lower case, dash separated string',
-        func: changeCase.param
+        func: changeCase.paramCase,
     },
     {
         label: COMMAND_LABELS.pascal,
         description:
             'Convert to a string denoted in the same fashion as camelCase, but with the first letter also capitalised',
-        func: changeCase.pascal
+        func: changeCase.pascalCase,
     },
     {
         label: COMMAND_LABELS.path,
         description: 'Convert to a lower case, slash separated string',
-        func: changeCase.path
+        func: changeCase.pathCase,
     },
     {
         label: COMMAND_LABELS.sentence,
         description: 'Convert to a lower case, space separated string',
-        func: changeCase.sentence
+        func: changeCase.sentenceCase,
     },
     {
         label: COMMAND_LABELS.snake,
         description: 'Convert to a lower case, underscore separated string',
-        func: changeCase.snake
+        func: changeCase.snakeCase,
     },
     {
         label: COMMAND_LABELS.snakeUpper,
         description: 'Convert to a underscore-separated string with the first character of every word upper cased',
-        func: snakeUpper
+        func: snakeUpper,
     },
     {
         label: COMMAND_LABELS.swap,
         description: 'Convert to a string with every character case reversed',
-        func: changeCase.swap
+        func: swapCase,
     },
     {
         label: COMMAND_LABELS.title,
         description: 'Convert to a space separated string with the first character of every word upper cased',
-        func: changeCase.title
+        func: titleCase,
     },
-    { label: COMMAND_LABELS.upper, description: 'Convert to a string in upper case', func: changeCase.upper },
+    { label: COMMAND_LABELS.upper, description: 'Convert to a string in upper case', func: upperCase },
     {
         label: COMMAND_LABELS.upperFirst,
         description: 'Convert to a string with the first character upper cased',
-        func: changeCase.ucFirst
-    }
+        func: upperCaseFirst,
+    },
 ];
 
 export function changeCaseCommands() {
     const firstSelectedText = getSelectedTextIfOnlyOneSelection();
     const opts: vscode.QuickPickOptions = {
         matchOnDescription: true,
-        placeHolder: 'What do you want to do to the current word / selection(s)?'
+        placeHolder: 'What do you want to do to the current word / selection(s)?',
     };
 
     // if there's only one selection, show a preview of what it will look like after conversion in the QuickPickOptions,
     // otherwise use the description used in COMMAND_DEFINITIONS
-    const items: vscode.QuickPickItem[] = COMMAND_DEFINITIONS.map(c => ({
+    const items: vscode.QuickPickItem[] = COMMAND_DEFINITIONS.map((c) => ({
         label: c.label,
-        description: firstSelectedText ? `Convert to ${c.func(firstSelectedText)}` : c.description
+        description: firstSelectedText ? `Convert to ${c.func(firstSelectedText)}` : c.description,
     }));
 
-    vscode.window.showQuickPick(items).then(command => runCommand(command.label));
+    vscode.window.showQuickPick(items).then((command) => runCommand(command.label));
 }
 
 export function runCommand(commandLabel: string) {
-    const commandDefinition = COMMAND_DEFINITIONS.filter(c => c.label === commandLabel)[0];
+    const commandDefinition = COMMAND_DEFINITIONS.filter((c) => c.label === commandLabel)[0];
     if (!commandDefinition) {
         return;
     }
@@ -134,8 +139,8 @@ export function runCommand(commandLabel: string) {
     let replacementActions = [];
 
     editor
-        .edit(editBuilder => {
-            replacementActions = selections.map(selection => {
+        .edit((editBuilder) => {
+            replacementActions = selections.map((selection) => {
                 const { text, range } = getSelectedText(selection, document);
 
                 let replacement;
@@ -149,7 +154,7 @@ export function runCommand(commandLabel: string) {
                 } else {
                     const lines = document.getText(range).split(EOL);
 
-                    const replacementLines = lines.map(x => {
+                    const replacementLines = lines.map((x) => {
                         let replacement = commandDefinition.func(x);
                         return replacement;
                     });
@@ -169,13 +174,13 @@ export function runCommand(commandLabel: string) {
                               range.start.character,
                               range.end.line,
                               range.end.character + offset
-                          )
+                          ),
                 };
             });
 
             replacementActions
-                .filter(x => x.replacement !== x.text)
-                .forEach(x => {
+                .filter((x) => x.replacement !== x.text)
+                .forEach((x) => {
                     editBuilder.replace(x.range, x.replacement);
                 });
         })
@@ -184,13 +189,13 @@ export function runCommand(commandLabel: string) {
 
             // in order to maintain the selections based on possible new replacement lengths, calculate the new
             // range coordinates, taking into account possible edits earlier in the line
-            const lineRunningOffsets = lodashUniq(sortedActions.map(s => s.range.end.line)).map(lineNumber => ({
+            const lineRunningOffsets = lodashUniq(sortedActions.map((s) => s.range.end.line)).map((lineNumber) => ({
                 lineNumber,
-                runningOffset: 0
+                runningOffset: 0,
             }));
 
-            const adjustedSelectionCoordinateList = sortedActions.map(s => {
-                const lineRunningOffset = lineRunningOffsets.filter(lro => lro.lineNumber === s.range.end.line)[0];
+            const adjustedSelectionCoordinateList = sortedActions.map((s) => {
+                const lineRunningOffset = lineRunningOffsets.filter((lro) => lro.lineNumber === s.range.end.line)[0];
                 const range = new vscode.Range(
                     s.newRange.start.line,
                     s.newRange.start.character + lineRunningOffset.runningOffset,
@@ -202,7 +207,7 @@ export function runCommand(commandLabel: string) {
             });
 
             // now finally set the newly created selections
-            editor.selections = adjustedSelectionCoordinateList.map(r => toSelection(r));
+            editor.selections = adjustedSelectionCoordinateList.map((r) => toSelection(r));
         });
 }
 
@@ -232,7 +237,7 @@ function getSelectedText(
 
     return {
         text: range ? document.getText(range) : undefined,
-        range
+        range,
     };
 }
 
