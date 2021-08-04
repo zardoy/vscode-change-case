@@ -112,10 +112,6 @@ const COMMAND_DEFINITIONS = [
 
 export function changeCaseCommands() {
     const firstSelectedText = getSelectedTextIfOnlyOneSelection();
-    const opts: vscode.QuickPickOptions = {
-        matchOnDescription: true,
-        placeHolder: 'What do you want to do to the current word / selection(s)?',
-    };
 
     // if there's only one selection, show a preview of what it will look like after conversion in the QuickPickOptions,
     // otherwise use the description used in COMMAND_DEFINITIONS
@@ -124,7 +120,11 @@ export function changeCaseCommands() {
         description: firstSelectedText ? c.func(firstSelectedText) : c.description,
     }));
 
-    vscode.window.showQuickPick(items).then((command) => runCommand(command.label));
+    vscode.window
+        .showQuickPick(items, {
+            placeHolder: 'Select case variant for converstion',
+        })
+        .then((command) => runCommand(command.label));
 }
 
 export function runCommand(commandLabel: string) {
