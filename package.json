@@ -18,7 +18,7 @@
   "version": "0.0.0-semantically-released",
   "publisher": "hjdarnel",
   "engines": {
-    "vscode": "^1.6.0"
+    "vscode": "^1.58.1"
   },
   "categories": [
     "Other"
@@ -135,7 +135,6 @@
     "vscode:prepublish": "tsc -p ./",
     "lint": "eslint src --ext ts",
     "compile": "tsc -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
     "pretest": "npm run compile && npm run lint",
     "test": "mocha \"./out/test/unit\"",
     "test:integration": "node ./out/test/suite/runTest.js",
@@ -161,6 +160,7 @@
   "devDependencies": {
     "@types/mocha": "^8.2.2",
     "@types/node": "^15.0.1",
+    "@types/vscode": "^1.58.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0",
@@ -171,7 +171,6 @@
     "semantic-release": "^17.4.2",
     "semantic-release-vsce": "^3.3.0",
     "typescript": "^4.2.4",
-    "vscode": "^1.1.37",
     "vscode-test": "^1.5.2"
   },
   "dependencies": {
