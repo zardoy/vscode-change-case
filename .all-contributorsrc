@@ -1,5 +1,5 @@
 {
-  "projectName": "change-case",
+  "projectName": "vscode-change-case",
   "projectOwner": "hjdarnel",
   "repoType": "github",
   "repoHost": "https://github.com",
@@ -19,7 +19,17 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "zardoy",
+      "name": "Vitaly",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46503702?v=4",
+      "profile": "http://zardoy.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
