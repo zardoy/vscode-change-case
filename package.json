@@ -41,7 +41,8 @@
     "onCommand:extension.changeCase.swap",
     "onCommand:extension.changeCase.title",
     "onCommand:extension.changeCase.upper",
-    "onCommand:extension.changeCase.upperFirst"
+    "onCommand:extension.changeCase.upperFirst",
+    "onCommand:extension.changeCase.sponge"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -52,71 +53,75 @@
       },
       {
         "command": "extension.changeCase.camel",
-        "title": "Change Case camel"
+        "title": "Change case to: camel"
       },
       {
         "command": "extension.changeCase.constant",
-        "title": "Change Case constant"
+        "title": "Change case to: constant"
       },
       {
         "command": "extension.changeCase.dot",
-        "title": "Change Case dot"
+        "title": "Change case to: dot"
       },
       {
         "command": "extension.changeCase.kebab",
-        "title": "Change Case kebab"
+        "title": "Change case to: kebab"
       },
       {
         "command": "extension.changeCase.lower",
-        "title": "Change Case lower"
+        "title": "Change case to: lower"
       },
       {
         "command": "extension.changeCase.lowerFirst",
-        "title": "Change Case lowerFirst"
+        "title": "Change case to: lowerFirst"
       },
       {
         "command": "extension.changeCase.no",
-        "title": "Change Case no"
+        "title": "Change case to: no"
       },
       {
         "command": "extension.changeCase.param",
-        "title": "Change Case param"
+        "title": "Change case to: param"
       },
       {
         "command": "extension.changeCase.pascal",
-        "title": "Change Case pascal"
+        "title": "Change case to: pascal"
       },
       {
         "command": "extension.changeCase.path",
-        "title": "Change Case path"
+        "title": "Change case to: path"
       },
       {
         "command": "extension.changeCase.sentence",
-        "title": "Change Case sentence"
+        "title": "Change case to: sentence"
       },
       {
         "command": "extension.changeCase.snake",
-        "title": "Change Case snake"
+        "title": "Change case to: snake"
       },
       {
         "command": "extension.changeCase.snakeUpper",
-        "title": "Change Case Snake_Upper"
+        "title": "Change case to: Snake_Upper"
       },
       {
         "command": "extension.changeCase.swap",
-        "title": "Change Case swap"
+        "title": "Change case to: swap"
       },
       {
         "command": "extension.changeCase.title",
-        "title": "Change Case title"
+        "title": "Change case to: title"
       },
       {
         "command": "extension.changeCase.upper",
-        "title": "Change Case upper"
+        "title": "Change case to: upper"
       },
       {
         "command": "extension.changeCase.upperFirst",
-        "title": "Change Case upperFirst"
+        "title": "Change case to: upperFirst"
+      },
+      {
+        "command": "extension.changeCase.sponge",
+        "title": "Change case to: sponge"
       }
     ]
   },
@@ -178,6 +183,7 @@
     "lodash.range": "^3.2.0",
     "lodash.uniq": "^4.5.0",
     "lower-case": "^2.0.2",
+    "sponge-case": "^1.0.1",
     "swap-case": "^2.0.2",
     "title-case": "^3.0.3",
     "upper-case": "^2.0.2",

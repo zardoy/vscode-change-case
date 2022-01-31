@@ -7,6 +7,7 @@ import { titleCase } from 'title-case';
 import { upperCase } from 'upper-case';
 import { upperCaseFirst } from 'upper-case-first';
 import { snakeUpper } from './utils';
+import { spongeCase } from 'sponge-case';
 const lodashUniq = require('lodash.uniq');
 
 export const COMMAND_LABELS = {
@@ -27,6 +28,7 @@ export const COMMAND_LABELS = {
     title: 'title',
     upper: 'upper',
     upperFirst: 'upperFirst',
+    sponge: 'sPonGeCaSe',
 };
 
 const COMMAND_DEFINITIONS = [
@@ -107,6 +109,11 @@ const COMMAND_DEFINITIONS = [
         label: COMMAND_LABELS.upperFirst,
         description: 'Convert to a string with the first character upper cased',
         func: upperCaseFirst,
+    },
+    {
+        label: COMMAND_LABELS.sponge,
+        description: 'Convert to a to a string with random capitalization applied',
+        func: spongeCase,
     },
 ];
 
