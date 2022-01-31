@@ -34,7 +34,7 @@ export const COMMAND_LABELS = {
 const COMMAND_DEFINITIONS = [
     {
         label: COMMAND_LABELS.camel,
-        description: 'Convert to a string with the separators denoted by having the next letter capitalised',
+        description: 'Convert to a string with the separators denoted by having the next letter capitalized',
         func: changeCase.camelCase,
     },
     {
@@ -71,7 +71,7 @@ const COMMAND_DEFINITIONS = [
     {
         label: COMMAND_LABELS.pascal,
         description:
-            'Convert to a string denoted in the same fashion as camelCase, but with the first letter also capitalised',
+            'Convert to a string denoted in the same fashion as camelCase, but with the first letter also capitalized',
         func: changeCase.pascalCase,
     },
     {

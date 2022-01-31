@@ -1,5 +1,5 @@
 # Change Case Extension for Visual Studio Code
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/hjdarnel/vscode-change-case?style=flat-square)  [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -27,24 +27,29 @@ ext install change-case
 
 ## Commands
 
-* `extension.changeCase.commands`: List all Change Case commands, with preview if only one word is selected
-* `extension.changeCase.camel`: Change Case 'camel': Convert to a string with the separators denoted by having the next letter capitalised
-* `extension.changeCase.constant`: Change Case 'constant': Convert to an upper case, underscore separated string
-* `extension.changeCase.dot`: Change Case 'dot': Convert to a lower case, period separated string
-* `extension.changeCase.kebab`: Change Case 'kebab': Convert to a lower case, dash separated string (alias for param case)
-* `extension.changeCase.lower`: Change Case 'lower': Convert to a string in lower case
-* `extension.changeCase.lowerFirst`: Change Case 'lowerFirst': Convert to a string with the first character lower cased
-* `extension.changeCase.no`: Convert the string without any casing (lower case, space separated)
-* `extension.changeCase.param`: Change Case 'param': Convert to a lower case, dash separated string
-* `extension.changeCase.pascal`: Change Case 'pascal': Convert to a string denoted in the same fashion as camelCase, but with the first letter also capitalised
-* `extension.changeCase.path`: Change Case 'path': Convert to a lower case, slash separated string
-* `extension.changeCase.sentence`: Change Case 'sentence': Convert to a lower case, space separated string
-* `extension.changeCase.snake`: Change Case 'snake': Convert to a lower case, underscore separated string
-* `extension.changeCase.snakeUpper`: Change Case 'snakeUpper': Convert to a underscore separated string with the first character of every word upper cased
-* `extension.changeCase.swap`: Change Case 'swap': Convert to a string with every character case reversed
-* `extension.changeCase.title`: Change Case 'title': Convert to a space separated string with the first character of every word upper cased
-* `extension.changeCase.upper`: Change Case 'upper': Convert to a string in upper case
-* `extension.changeCase.upperFirst`: Change Case 'upperFirst': Convert to a string with the first character upper cased
+| Command                           | Output      | Explanation                                                                                   |
+|-----------------------------------|-------------|-----------------------------------------------------------------------------------------------|
+| `extension.changeCase.commands`   | Hello world | List all commands, with preview if only one word is selected                                  |
+| `extension.changeCase.camel`      | helloWorld  | A string with the separators denoted by having the next letter capitalized                    |
+| `extension.changeCase.constant`   | HELLO_WORLD | An upper case, underscore separated string                                                    |
+| `extension.changeCase.dot`        | hello.world | A lower case, period separated string                                                         |
+| `extension.changeCase.kebab`      | hello-world | A lower case, dash separated string (alias for param case)                                    |
+| `extension.changeCase.lower`      | hello world | A string in lower case                                                                        |
+| `extension.changeCase.lowerFirst` | hello world | A string with the first character lower cased                                                 |
+| `extension.changeCase.no`         | hello world | Convert the string without any casing (lower case, space separated)                           |
+| `extension.changeCase.param`      | hello-world | A lower case, dash separated string                                                           |
+| `extension.changeCase.pascal`     | HelloWorld  | A string denoted in the same fashion as camelCase, but with the first letter also capitalized |
+| `extension.changeCase.path`       | hello/world | A lower case, slash separated string                                                          |
+| `extension.changeCase.sentence`   | Hello world | A lower case, space separated string                                                          |
+| `extension.changeCase.snake`      | Hello_World | A lower case, underscore separated string                                                     |
+| `extension.changeCase.snakeUpper` | Hello_World | A underscore separated string with the first character of every word upper cased              |
+| `extension.changeCase.swap`       | hELLO WORLD | A string with every character case reversed                                                   |
+| `extension.changeCase.title`      | Hello World | A space separated string with the first character of every word upper cased                   |
+| `extension.changeCase.upper`      | HELLO WORLD | A string in upper case                                                                        |
+| `extension.changeCase.upperFirst` | Hello world | A string with the first character upper cased                                                 |
+| `extension.changeCase.sponge`     | hELLo WOrLd | A to a string with random capitalization applied                                              |
+
+
 
 ## Support
 
