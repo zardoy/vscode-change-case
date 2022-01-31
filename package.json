@@ -135,7 +135,6 @@
     "vscode:prepublish": "tsc -p ./",
     "lint": "eslint src --ext ts",
     "compile": "tsc -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
     "pretest": "npm run compile && npm run lint",
     "test": "mocha \"./out/test/unit\"",
     "test:integration": "node ./out/test/suite/runTest.js",
