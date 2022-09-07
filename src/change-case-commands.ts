@@ -8,6 +8,9 @@ import { upperCase } from 'upper-case';
 import { upperCaseFirst } from 'upper-case-first';
 import { snakeUpper } from './utils';
 import { spongeCase } from 'sponge-case';
+import { Utils as UriUtils } from 'vscode-uri';
+import { extname } from 'path';
+
 const lodashUniq = require('lodash.uniq');
 
 export const COMMAND_LABELS = {
@@ -132,6 +135,50 @@ export function changeCaseCommands() {
             placeHolder: 'Select case variant for converstion',
         })
         .then((command) => runCommand(command.label));
+}
+
+export async function renameFileCommand(variantArg?: keyof typeof COMMAND_LABELS) {
+    const activeEditor = vscode.window.activeTextEditor;
+    if (!activeEditor) {
+        return;
+    }
+    const { uri: sourceUri } = activeEditor.document;
+    const fullFileName = UriUtils.basename(sourceUri);
+    let fileName = fullFileName;
+    let fullExt = '';
+    // cut extension twice e.g. file.test.ts -> file & .test.ts
+    for (const _i of Array.from({ length: 2 })) {
+        const ext = extname(fileName);
+        if (!ext.length) {
+            continue;
+        }
+        fileName = fileName.slice(0, -ext.length);
+        fullExt = `${ext}${fullExt}`;
+    }
+
+    let newFileName: string;
+    if (variantArg) {
+        const variantLabel = COMMAND_LABELS[variantArg];
+        const commandDefinition = COMMAND_DEFINITIONS.find((c) => c.label === variantLabel);
+        newFileName = commandDefinition.func(fileName);
+    } else {
+        const items: vscode.QuickPickItem[] = COMMAND_DEFINITIONS.map((c) => ({
+            label: c.label,
+            description: c.func(fileName),
+        }));
+
+        const selectedVariant = await vscode.window.showQuickPick(items, {
+            title: `Renaming ${fullFileName}`,
+            placeHolder: 'Select case variant for file name converstion',
+        });
+        if (!selectedVariant) {
+            return;
+        }
+        newFileName = selectedVariant.description!;
+    }
+    const edit = new vscode.WorkspaceEdit();
+    edit.renameFile(sourceUri, UriUtils.joinPath(sourceUri, '..', `${newFileName}${fullExt}`));
+    await vscode.workspace.applyEdit(edit);
 }
 
 export function runCommand(commandLabel: string) {
