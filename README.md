@@ -4,7 +4,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-This is a fork of [wmaurer/vscode-change-case](https://github.com/hjdarnel/vscode-change-case), which I intend to keep up with, track issues, and update regularly.
+This is a fork of [wmaurer/vscode-change-case](https://github.com/wmaurer/vscode-change-case), which I intend to keep up with, track issues, and update regularly.
 
 A wrapper around [node-change-case](https://github.com/blakeembrey/node-change-case) for Visual Studio Code.
 Quickly change the case of the current selection or current word.
