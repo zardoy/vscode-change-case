@@ -1,8 +1,9 @@
 import * as vscode from 'vscode';
-import { changeCaseCommands, runCommand, COMMAND_LABELS } from './change-case-commands';
+import { changeCaseCommands, runCommand, COMMAND_LABELS, renameFileCommand } from './change-case-commands';
 
 export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand('extension.changeCase.commands', changeCaseCommands);
+    vscode.commands.registerCommand('extension.changeCase.renameFile', renameFileCommand);
     vscode.commands.registerCommand('extension.changeCase.camel', () => runCommand(COMMAND_LABELS.camel));
     vscode.commands.registerCommand('extension.changeCase.constant', () => runCommand(COMMAND_LABELS.constant));
     vscode.commands.registerCommand('extension.changeCase.dot', () => runCommand(COMMAND_LABELS.dot));

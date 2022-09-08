@@ -25,6 +25,7 @@
   ],
   "activationEvents": [
     "onCommand:extension.changeCase.commands",
+    "onCommand:extension.changeCase.renameFile",
     "onCommand:extension.changeCase.camel",
     "onCommand:extension.changeCase.constant",
     "onCommand:extension.changeCase.dot",
@@ -50,6 +51,10 @@
       {
         "command": "extension.changeCase.commands",
         "title": "Change Case Commands"
+      },
+      {
+        "command": "extension.changeCase.renameFile",
+        "title": "Change Case Rename File"
       },
       {
         "command": "extension.changeCase.camel",
@@ -187,6 +192,7 @@
     "swap-case": "^2.0.2",
     "title-case": "^3.0.3",
     "upper-case": "^2.0.2",
-    "upper-case-first": "^2.0.2"
+    "upper-case-first": "^2.0.2",
+    "vscode-uri": "^3.0.3"
   }
 }

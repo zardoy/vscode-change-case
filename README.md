@@ -18,6 +18,8 @@ If only one word is selected, the `extension.changeCase.commands` command gives 
 
 *Note:* Please read the [documentation](https://code.visualstudio.com/Docs/editor/editingevolved) on how to use multiple cursors in Visual Studio Code.
 
+Also, with `extension.changeCase.renameFile` it is possible to change casing of active files.
+
 ## Install
 
 Launch VS Code Quick Open (Ctrl/Cmd+P), paste the following command, and press enter.
