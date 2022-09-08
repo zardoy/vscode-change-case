@@ -1,5 +1,6 @@
 # Change Case Extension for Visual Studio Code
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/hjdarnel/vscode-change-case?style=flat-square)  [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![VSCode Marketplace version](https://img.shields.io/visual-studio-marketplace/v/hjdarnel.vscode-change-case?label=vscode%20marketplace&style=flat-square)](https://marketplace.visualstudio.com/items?itemName=hjdarnel.vscode-change-case)
+[![OVSC version](https://img.shields.io/open-vsx/v/hjdarnel/vscode-change-case?style=flat-square)](https://open-vsx.org/extension/hjdarnel/vscode-change-case)<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
